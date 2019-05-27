@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="WEB-INF/modeles/modele.xhtml">
+
+	<ui:define name="content">
+		<h:form id="form" rendered="true">
+			<h:dataTable value="#{loginBean.lesAdherentBis}" var="adherent"
+				cellpadding="4">
+				<h:column rendered="true">
+					<f:facet name="header">Nom</f:facet>
+					<h:inputText value="#{adherent.nom}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">Prenom</f:facet>
+					<h:inputText value="#{adherent.prenom}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">adrRue</f:facet>
+					<h:inputText value="#{adherent.adrRue}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">adrCP</f:facet>
+					<h:inputText value="#{adherent.adrCP}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">Ville</f:facet>
+					<h:inputText value="#{adherent.adrVille}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">tel</f:facet>
+					<h:inputText value="#{adherent.tel}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">mel</f:facet>
+					<h:inputText value="#{adherent.mel}" />
+
+
+				</h:column>
+
+
+				<h:column rendered="true">
+					<h:commandButton value="Valider" action="#{loginBean.modefA}"
+						actionlistener="#{loginBean.modefA}">
+						<f:setPropertyActionListener value="#{adherent}"
+							target="#{loginBean.adherent}" />
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+
+			<h:commandButton value="precedent" action="Adherent">
+			</h:commandButton>
+			<br />
+
+
+
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

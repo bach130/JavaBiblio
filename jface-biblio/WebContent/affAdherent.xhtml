@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="WEB-INF/modeles/modele.xhtml">
+	<ui:define name="content">
+		<h2>Bienvenue administrateur</h2>
+		<h:form id="form" rendered="true">
+			<h:dataTable value="#{loginBean.lesAdherent}" var="adherent"
+				cellpadding="4">
+				<h:column rendered="true">
+					<f:facet name="header">Nom</f:facet>
+					<h:outputText value="#{adherent.nom}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">Prénom</f:facet>
+					<h:outputText value="#{adherent.prenom}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">adrRue</f:facet>
+					<h:outputText value="#{adherent.adrRue}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">adrCP</f:facet>
+					<h:outputText value="#{adherent.adrCP}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">adrVille</f:facet>
+					<h:outputText value="#{adherent.adrVille}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">tel</f:facet>
+					<h:outputText value="#{adherent.tel}" />
+				</h:column>
+				<h:column rendered="true">
+					<f:facet name="header">mel</f:facet>
+					<h:outputText value="#{adherent.mel}" />
+				</h:column>
+				<h:column rendered="true">
+					<h:commandButton value="supprimer"
+						action="#{loginBean.SupprimerAdherent}"
+						actionlistener="#{loginBean.SupprimerAdherent}">
+						<f:setPropertyActionListener value="#{adherent}"
+							target="#{loginBean.adherent}" />
+					</h:commandButton>
+				</h:column>
+				
+				
+					 <h:column rendered="true">
+				<h:commandButton value="Modefier"
+					action="ModefierAd">
+					<f:setPropertyActionListener value="#{adherent}"
+						target="#{loginBean.adherent}" />
+				</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+
+			
+			<h:panelGrid>
+			    <h:commandButton value="Ajouter Un Adherent" action="AjoutAdherent"></h:commandButton>
+				<h:commandButton value="precedent" action="Adherent">
+				</h:commandButton>
+				
+				
+					
+					
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
